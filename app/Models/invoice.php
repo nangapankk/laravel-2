@@ -10,9 +10,10 @@ class invoice extends Model
     use HasFactory;
     protected $table='invoice';
     protected $fillable = [
-        'invoice_number','invoice_total','user_id'];
-
-        public function invoices(){
-            return $this->hasMany(invoice::class,'product_id','id');
+        'invoice_number','invoice_date','invoice_total','user_id'];
+// details adl nama relasi utk model ini. bebas ja ngaranya tu pdhl..aman
+//invoice _id tu foreign key dari tabel invoice, id tu PK tabel invoice
+        public function details(){
+            return $this->hasMany(detail::class,'invoice_id','id');
         }
     }
