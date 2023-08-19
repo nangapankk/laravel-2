@@ -25,5 +25,5 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::resource('/supplier', SupplierController::class);
-Route::resource('/product', ProductController::class);
+Route::resource('/supplier', SupplierController::class)->middleware('auth');
+Route::resource('/product', ProductController::class)->middleware('auth');

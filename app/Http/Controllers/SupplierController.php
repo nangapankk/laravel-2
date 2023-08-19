@@ -15,7 +15,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.supplier.index');
     }
 
     /**
