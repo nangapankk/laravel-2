@@ -15,7 +15,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('pages.supplier.index');
+       $data=supplier::get();
+        return view('pages.supplier.index',compact('data'));
     }
 
     /**
@@ -92,9 +93,9 @@ class SupplierController extends Controller
         {
             try {
                 $supplier->deleteorFail();
-                return redirect()->route('supplier.index')->with('Delete', 'Delete berhasil');
+                return redirect()->route('supplier.index')->with('Berhasil', 'Delete berhasil');
             } catch (\Throwable $th) {
-                return redirect()->route('supplier.index') - with('Gagal', 'Delete tidak berhasil');
+                return redirect()->route('supplier.index')->with('Gagal', 'Delete tidak berhasil');
             }}
     }
 
