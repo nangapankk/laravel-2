@@ -27,7 +27,7 @@
             <tbody>
                 @foreach ($data as $no => $item)
                 <tr>
-                    <td ="row">{{ $no+=1 }}</td>
+                    <td>{{ $no+=1 }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->description }}</td>
                     <td>{{ $item->category }}</td>
@@ -36,7 +36,16 @@
                     <td>{{ $item->stock }}</td>
                     <td>{{ $item->supplier->name}}</td>
                     <td>{{ $item->image_url }}</td>
-                    <td></td>
+                    <td>
+                        <form action="{{ route('product.destroy', $item->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Apakah anda yakin menghapus ?')">Hapus
+                            </button>
+
+                        </form>
+                    </td>
 
                   </tr>
                 @endforeach

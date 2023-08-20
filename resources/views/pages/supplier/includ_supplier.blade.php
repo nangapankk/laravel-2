@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">{{ __('Dashboard') }}
-        <a data-bs-toggle="modal" data-bs-target="#exampleModaladd" href="{{ route('product.create') }}"
+        <a data-bs-toggle="modal" data-bs-target="#exampleModaladd" href="{{ route('supplier.create') }}"
             class="btn btn-info float-end">Tambah</a>
 
 
