@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Undocumented function
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
-        //
+        $data = product::with(['supplier'])->get();
+        return view('pages.product.index',compact('data'));
+
     }
 
     /**
@@ -96,7 +98,7 @@ class ProductController extends Controller
     {
         try {
             $product->deleteorFail();
-            return redirect()->route('product.index')->with('Delete', 'Deletenya berhasil');
+            return redirect()->route('product.index')->with('Berhasil', 'Deletenya berhasil');
         } catch (\Throwable $th) {
             return redirect()->route('product.index') - with('Gagal', 'Delete tidak berhasil');
         }}
