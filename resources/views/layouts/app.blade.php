@@ -20,7 +20,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ url('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('https://cdn.jsdelivr.net/npm/sweetalert2@11.7.26/dist/sweetalert2.min.css') }}" rel="stylesheet">
+    <link href="{{ url('https://cdn.jsdelivr.net/npm/sweetalert2@11.7.26/dist/sweetalert2.min.css') }}"
+        rel="stylesheet">
 
 </head>
 
@@ -39,17 +40,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('supplier.index') }}">SUPPLIER</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('product.index') }}">PRODUCT</a>
-                            </li>
-                        @endauth
-
-                    </ul>
+                    @include('layouts.includ_navbar')
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -99,7 +90,7 @@
     <script src="{{ url('https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js') }}"></script>
     <script src="{{ url('https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ url('https://cdn.jsdelivr.net/npm/sweetalert2@11.7.26/dist/sweetalert2.all.min.js') }}"></script>
-@stack('js')
+    @stack('js')
 </body>
 
 </html>

@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\SupplierController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +28,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('/supplier', SupplierController::class)->middleware('auth');
 Route::resource('/product', ProductController::class)->middleware('auth');
+Route::resource('/chart', ChartController::class)->middleware('auth');
+Route::resource('/invoice', InvoiceController::class)->middleware('auth');
