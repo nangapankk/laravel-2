@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+use App\Models\supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $data = product::with(['supplier'])->get();
-        return view('pages.product.index',compact('data'));
+        $supplier = supplier::get();
+        return view('pages.product.index', compact('data', 'supplier'));
 
     }
 
@@ -39,14 +41,14 @@ class ProductController extends Controller
     {
         try {
             product::create([
-                'name' => $request['name'],
-                'description' => $request['description'],
-                'category' => $request['category'],
-                'buy' => $request['buy'],
-                'sell' => $request['sell'],
-                'stock' => $request['stock'],
-                'supplier_id' => $request['supplier_id'],
-                'image_url' => $request['image_url'],
+                'name' => $request['add_name'],
+                'description' => $request['add_description'],
+                'category' => $request['add_category'],
+                'buy' => $request['add_buy'],
+                'sell' => $request['add_sell'],
+                'stock' => $request['add_stock'],
+                'supplier_id' => $request['add_supplier_id'],
+                'image_url' => $request['add_image_url'],
 
             ]);
             return redirect()->route('product.index')->with('Sukses', 'Berhasil dong-');

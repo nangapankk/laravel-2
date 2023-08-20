@@ -38,9 +38,9 @@ class SupplierController extends Controller
     {
         try {
             supplier::create([
-                'name' => $request['name'],
-                'phone' => $request['phone'],
-                'address' => $request['address'],
+                'name' => $request['add_name'],
+                'phone' => $request['add_phone'],
+                'address' => $request['add_address'],
 
             ]);
             return redirect()->route('supplier.index')->with('Success', 'Supplier has been created succesfuly.');
