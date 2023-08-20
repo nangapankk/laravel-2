@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\product;
 use App\Models\supplier;
 use Illuminate\Http\Request;
@@ -32,14 +33,17 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Undocumented function
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ProductRequest $request
+     * @return void
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         try {
+
+            $file = $request->file('add_image_url')->store('public/product');
+
             product::create([
                 'name' => $request['add_name'],
                 'description' => $request['add_description'],
@@ -48,10 +52,10 @@ class ProductController extends Controller
                 'sell' => $request['add_sell'],
                 'stock' => $request['add_stock'],
                 'supplier_id' => $request['add_supplier_id'],
-                'image_url' => $request['add_image_url'],
+                'image_url' => str_replace('public/', 'storage/', $file),
 
             ]);
-            return redirect()->route('product.index')->with('Sukses', 'Berhasil dong-');
+            return redirect()->route('product.index')->with('Berhasil', 'Berhasil dong-');
         } catch (\Throwable $th) {
             return redirect()->route('product.index')->with('Gagal', 'Tidak Berhasil.');
         }

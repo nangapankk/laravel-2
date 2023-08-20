@@ -8,6 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('supplier.store') }}" method="post">
+                @csrf
                 <div class="modal-body">
                     <div class="modal-body">
                         <div class="mb-3">
@@ -18,7 +19,7 @@
 
                         <div class="mb-3">
                             <label for="add_phone" class="form-label">Nomor Telepon</label>
-                            <input type="integer" class="form-control" id="add_phone" name="add_phone"
+                            <input type="number" class="form-control" id="add_phone" name="add_phone"
                                 placeholder="Telepon">
                         </div>
                         <div class="mb-3">
@@ -29,11 +30,12 @@
 
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </form>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
-            </div>
+
         </div>
     </div>
 </div>

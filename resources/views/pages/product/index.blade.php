@@ -1,36 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-           @include('pages.product.includ_product')
-                </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                 @include('pages.product.includ_product')
             </div>
         </div>
+
     </div>
-</div>
-@include('pages.product.includ_modaladd')
+
+    @include('pages.product.includ_modaladd')
 @endsection
 @push('js')
-<script>
-    $('#tabel').DataTable();
-    @if ($message = session()->get('Berhasil'))
-        Swal.fire(
-            'Berhasil!',
-            '{{ $message }}',
-            'success'
-        )
-    @endif
+    <script>
+        $('#tabel').DataTable();
+        @if ($message = session()->get('Berhasil'))
+            Swal.fire(
+                'Berhasil!',
+                '{{ $message }}',
+                'success'
+            )
+        @endif
 
-    @if ($message = session()->get('Gagal'))
-        Swal.fire(
-            'Gagal!',
-            '{{ $message }}',
-            'error'
-        )
-    @endif
-
-
-</script>
+        @if ($message = session()->get('Gagal'))
+            Swal.fire(
+                'Gagal!',
+                '{{ $message }}',
+                'error'
+            )
+        @endif
+    </script>
 @endpush

@@ -43,10 +43,10 @@ class SupplierController extends Controller
                 'address' => $request['add_address'],
 
             ]);
-            return redirect()->route('supplier.index')->with('Success', 'Supplier has been created succesfuly.');
+            return redirect()->route('supplier.index')->with('Berhasil', 'Supplier has been created succesfuly.');
 
         } catch (\Throwable $th) {
-            return redirect()->route('supplier.index')->with('Failed', 'Supplier failed to created.');
+            return redirect()->route('supplier.index')->with('Gagal', 'Supplier failed to created.');
 
         }
     }

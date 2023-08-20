@@ -24,7 +24,10 @@ class SupplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required'
+            'add_name'=>'required',
+            'add_phone'=>'required',
+            'add_address'=>'required',
+
         ];
     }
 }
