@@ -15,5 +15,22 @@
 @push('js')
 <script>
     $('#tabel').DataTable();
+    @if ($message = session()->get('Berhasil'))
+        Swal.fire(
+            'Berhasil!',
+            '{{ $message }}',
+            'success'
+        )
+    @endif
+
+    @if ($message = session()->get('Gagal'))
+        Swal.fire(
+            'Gagal!',
+            '{{ $message }}',
+            'error'
+        )
+    @endif
+
+
 </script>
 @endpush
